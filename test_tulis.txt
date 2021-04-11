@@ -1,0 +1,34 @@
+1
+select
+	mahasiswa.nim,
+	mahasiswa.nama,
+	max(nilai_mahasiswa.nilaiAngka) nilai_tertinggi,
+	sum(case when nilaiHuruf<'D' then 1 else 0 end) jumlah_mk_lulus,
+	sum(case when nilaiHuruf = 'A' then 4 else case when nilaiHuruf = 'B' then 3 else case when nilaiHuruf = 'C' then 2 else case when nilaiHuruf = 'D1' then 1 else 0 end end end end) / count(nilai_mahasiswa.nim) ips,
+	count(case when nilaiAngka>75 then 1 else 0 end) jumlah_matkul_lebih75,
+	nilai_mahasiswa.namaMk matkul_nilai_tertinggi
+from
+	mahasiswa
+inner join nilai_mahasiswa on
+	nilai_mahasiswa.nim = mahasiswa.nim
+group by
+	mahasiswa.nim
+
+2
+
+select
+	nilai_mahasiswa.kodeMk,
+	nilai_mahasiswa.namaMk,
+	count(case when nilai_mahasiswa.nilaiHuruf = 'A' or nilai_mahasiswa.nilaiHuruf = 'B' then 1 else 0 end ) jumlah_mhs_nilai_a_or_b,
+	sum(case when mahasiswa.umur >= 20 and mahasiswa.umur<22 then nilai_mahasiswa.nilaiAngka else 0 end)/ count(case when nilai_mahasiswa.nilaiHuruf = 'A' or nilai_mahasiswa.nilaiHuruf = 'B' then 1 else 0 end ) rata_nilai_mhs_umur_20_22
+from
+	nilai_mahasiswa
+inner join mahasiswa on
+	mahasiswa.nim = nilai_mahasiswa.nim
+where
+	nilai_mahasiswa.kodeMk != 'MKB'
+group by
+	nilai_mahasiswa.kodeMk
+
+3
+

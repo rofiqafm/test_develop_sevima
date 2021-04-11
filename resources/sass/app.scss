@@ -1,0 +1,46 @@
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/regular";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~@fortawesome/fontawesome-free/scss/brands";
+
+html,body{
+    height:100%;
+    padding:0px;
+    margin:0px;
+}
+body {
+    background:rgb(255,255,255);
+    font-family: "Lato", Helvetica, Arial, sans-serif;
+    color: #7a7676;
+    line-height: 20px;
+    font-size: 14px
+}
+.navbar-expand{
+    border-bottom: rgb(211,211,211) inset 1px
+}
+
+.font-size-13 {
+    font-size: 13px;
+ }
+
+ .like-post {
+    background: red;
+    color: white;
+ }
+
+ .like-post:hover {
+    background: red;
+    color: white;
+ }
+
+ .post-image img{
+    padding: 4px;
+    border: 2px solid #fff;
+    box-shadow: 1px 1px 1px 2px rgb(221,221,221);
+ }
+ .img-sm{width:40px}
+ .pull-left{float:left}
+ .text-right{text-align:right}
+ .pull-right{float:right}
+
+    
